@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Proiect1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Proiect1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="Client">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="Comandas" nillable="true" type="tns:ArrayOfComanda" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Judet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Localitate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfComanda">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comanda" nillable="true" type="tns:Comanda" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComanda" nillable="true" type="tns:ArrayOfComanda" />
+  <xs:complexType name="Comanda">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Automobil" nillable="true" type="tns:Automobil" />
+      <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="ComandaId" type="xs:int" />
+      <xs:element minOccurs="0" name="DataFinalizare" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataProgramare" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataSystem" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descriere" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetaliiComandas" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+      <xs:element minOccurs="0" name="KmBord" type="xs:int" />
+      <xs:element minOccurs="0" name="StareComanda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValoarePiese" type="xs:decimal" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Comanda" nillable="true" type="tns:Comanda" />
+  <xs:complexType name="Automobil">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="Comandas" nillable="true" type="tns:ArrayOfComanda" />
+      <xs:element minOccurs="0" name="DetaliiComandas" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+      <xs:element minOccurs="0" name="NumarAuto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sasiu" nillable="true" type="tns:Sasiu" />
+      <xs:element minOccurs="0" name="SasiuId" type="xs:int" />
+      <xs:element minOccurs="0" name="SerieSasiu" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Automobil" nillable="true" type="tns:Automobil" />
+  <xs:complexType name="ArrayOfDetaliiComanda">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetaliiComanda" nillable="true" type="tns:DetaliiComanda" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetaliiComanda" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+  <xs:complexType name="DetaliiComanda">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Automobil" nillable="true" type="tns:Automobil" />
+      <xs:element minOccurs="0" name="Comanda" nillable="true" type="tns:Comanda" />
+      <xs:element minOccurs="0" name="ComandaId" type="xs:int" />
+      <xs:element minOccurs="0" name="DetaliiComandaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Imagine" nillable="true" type="tns:Imagine" />
+      <xs:element minOccurs="0" name="ImagineId" type="xs:int" />
+      <xs:element minOccurs="0" name="Mecanic" nillable="true" type="tns:Mecanic" />
+      <xs:element minOccurs="0" name="MecanicId" type="xs:int" />
+      <xs:element minOccurs="0" name="Operatie" nillable="true" type="tns:Operatie" />
+      <xs:element minOccurs="0" name="OperatieId" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="DetaliiComanda" nillable="true" type="tns:DetaliiComanda" />
+  <xs:complexType name="Imagine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataImagine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descriere" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetaliiComandas" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+      <xs:element minOccurs="0" name="Foto" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ImagineId" type="xs:int" />
+      <xs:element minOccurs="0" name="Titlu" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Imagine" nillable="true" type="tns:Imagine" />
+  <xs:complexType name="Mecanic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetaliiComandas" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+      <xs:element minOccurs="0" name="MecanicId" type="xs:int" />
+      <xs:element minOccurs="0" name="Nume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenume" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Mecanic" nillable="true" type="tns:Mecanic" />
+  <xs:complexType name="Operatie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Denumire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetaliiComandas" nillable="true" type="tns:ArrayOfDetaliiComanda" />
+      <xs:element minOccurs="0" name="OperatieId" type="xs:int" />
+      <xs:element minOccurs="0" name="TimpExecutie" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Operatie" nillable="true" type="tns:Operatie" />
+  <xs:complexType name="Sasiu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Automobils" nillable="true" type="tns:ArrayOfAutomobil" />
+      <xs:element minOccurs="0" name="CodSasiu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denumire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SasiuId" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Sasiu" nillable="true" type="tns:Sasiu" />
+  <xs:complexType name="ArrayOfAutomobil">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Automobil" nillable="true" type="tns:Automobil" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAutomobil" nillable="true" type="tns:ArrayOfAutomobil" />
+</xs:schema>
